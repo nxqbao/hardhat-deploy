@@ -1248,10 +1248,10 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@nxqbao/eth-signer-trezor@^2.1.0":
-  version "2.1.0"
-  resolved "https://npm.pkg.github.com/download/@nxqbao/eth-signer-trezor/2.1.0/2a90f9e806bdba75980760fba58bc9ea9c1f361296b6b2df7542b93f26889d9f#29b1dad4858c676ad9bd9edd40ad7f4c2e9da28e"
-  integrity sha512-V2jju9M4k2cBgsqxf4L43LfbrXitEKSUpOcCC4FieFPzgD1+umijQ82YD8xPL9vgALZGuWKSHZkl7U70IOJ4mQ==
+"@nxqbao/eth-signer-trezor@^2.1.0-e":
+  version "2.1.0-e"
+  resolved "https://npm.pkg.github.com/download/@nxqbao/eth-signer-trezor/2.1.0-e/4b3eb11c85acad7025cc46966d78b7ff468fd473d6b171eaee8f29854b766162#a6bd2eb9338d6f114b053246d9d63afb7cef36e0"
+  integrity sha512-+sP8FuowE8/Oc2aAZ50StEnXd454qMJzK22VSyCoihVeiB+Pn89/YxkXfKaJGEKmLlJ5TA5cyKbW2T+HixQG3Q==
   dependencies:
     "@ethersproject/abstract-signer" "^5.5.4"
     "@ethersproject/bytes" "^5.5.4"
