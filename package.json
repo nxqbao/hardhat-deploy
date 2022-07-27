@@ -1,6 +1,6 @@
 {
   "name": "@nxqbao/hardhat-deploy",
-  "version": "0.11.12-trezor-f",
+  "version": "0.11.12-trezor-h",
   "description": "Hardhat Plugin For Replicable Deployments And Tests",
   "repository": "github:nxqbao/hardhat-deploy",
   "author": "wighawag",
@@ -58,7 +58,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@nxqbao/eth-signer-trezor": "^2.1.0-e",
+    "@nxqbao/eth-signer-trezor": "^2.1.0-g",
     "@types/qs": "^6.9.7",
     "axios": "^0.21.1",
     "chalk": "^4.1.2",

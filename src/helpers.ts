@@ -61,6 +61,7 @@ import {
   parse as parseTransaction,
   Transaction,
 } from '@ethersproject/transactions';
+import {getDerivationPath} from './hdpath';
 
 let LedgerSigner: any; // TODO type
 let TrezorSigner: any; // TODO type
@@ -1712,6 +1713,7 @@ Note that in this case, the contract deployment will not behave the same if depl
     let wallet: Wallet | zk.Wallet | undefined;
     let hardwareWallet: string | undefined = undefined;
     let unknown = false;
+    let derivationPath: string | undefined = undefined;
 
     if (from.length >= 64) {
       if (from.length === 64) {
@@ -1768,6 +1770,14 @@ Note that in this case, the contract deployment will not behave the same if depl
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
                 // const hardwareWalletModule = require('ethers-trezor');
                 const hardwareWalletModule = require('@nxqbao/eth-signer-trezor');
+                derivationPath = getDerivationPath(network.chainId);
+
+                if (!derivationPath) {
+                  throw new Error(
+                    `network is currently unsupported with trezor`
+                  );
+                }
+
                 TrezorSigner = hardwareWalletModule.TrezorSigner;
               } catch (e) {
                 error = e;
@@ -1780,7 +1790,7 @@ Note that in this case, the contract deployment will not behave the same if depl
                 throw error;
               }
             }
-            ethersSigner = new TrezorSigner(provider);
+            ethersSigner = new TrezorSigner(provider, derivationPath);
             hardwareWallet = 'trezor';
           } else if (registeredProtocol.startsWith('privatekey')) {
             ethersSigner = new Wallet(registeredProtocol.substr(13), provider);
