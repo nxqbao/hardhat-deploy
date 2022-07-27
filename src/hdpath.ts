@@ -4,18 +4,18 @@ function logError(...args: any[]) {
   console.log(chalk.red(...args));
 }
 
-export function getDerivationPath(chainId: string): string | undefined {
+export function getDerivationPath(chainId: number): string | undefined {
   let coinType;
 
   switch (chainId) {
-    case '1':
-    case '2020' /* Ronin Mainnet */:
-    case '2021' /* Ronin Testnet */:
+    case 1:
+    case 2020 /* Ronin Mainnet */:
+    case 2021 /* Ronin Testnet */:
       coinType = '60';
       break;
-    case '3':
-    case '4':
-    case '5':
+    case 3:
+    case 4:
+    case 5:
       coinType = '1';
       break;
     default:

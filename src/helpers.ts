@@ -1770,7 +1770,7 @@ Note that in this case, the contract deployment will not behave the same if depl
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
                 // const hardwareWalletModule = require('ethers-trezor');
                 const hardwareWalletModule = require('@nxqbao/eth-signer-trezor');
-                derivationPath = getDerivationPath(network.chainId);
+                derivationPath = getDerivationPath(network.config.chainId);
 
                 if (!derivationPath) {
                   throw new Error(
@@ -1790,7 +1790,11 @@ Note that in this case, the contract deployment will not behave the same if depl
                 throw error;
               }
             }
-            ethersSigner = new TrezorSigner(provider, derivationPath);
+            ethersSigner = new TrezorSigner(
+              provider,
+              derivationPath,
+              'hardhat-deploy-trezor'
+            );
             hardwareWallet = 'trezor';
           } else if (registeredProtocol.startsWith('privatekey')) {
             ethersSigner = new Wallet(registeredProtocol.substr(13), provider);
