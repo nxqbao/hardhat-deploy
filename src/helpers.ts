@@ -1790,9 +1790,12 @@ Note that in this case, the contract deployment will not behave the same if depl
                 throw error;
               }
             }
+
             ethersSigner = new TrezorSigner(
               provider,
               derivationPath,
+              undefined, // TODO: support fetch by index
+              from,
               'hardhat-deploy-trezor'
             );
             hardwareWallet = 'trezor';

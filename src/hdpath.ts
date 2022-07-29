@@ -23,6 +23,6 @@ export function getDerivationPath(chainId: number): string | undefined {
       return undefined;
   }
 
-  const derivationPath = `m/44'/${coinType}'/0'/0/0`;
+  const derivationPath = `m/44'/${coinType}'/0'/0`;
   return derivationPath;
 }
