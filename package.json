@@ -1,6 +1,6 @@
 {
   "name": "@nxqbao/hardhat-deploy",
-  "version": "0.11.12-trezor-alpha",
+  "version": "0.11.12-trezor-alpha-2",
   "description": "Hardhat Plugin For Replicable Deployments And Tests",
   "repository": "github:nxqbao/hardhat-deploy",
   "author": "wighawag",
