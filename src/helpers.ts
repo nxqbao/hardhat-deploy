@@ -65,6 +65,7 @@ import {getDerivationPath} from './hdpath';
 
 let LedgerSigner: any; // TODO type
 let TrezorSigner: any; // TODO type
+let hardwareSigner: any; // TODO type
 
 async function handleSpecificErrors<T>(p: Promise<T>): Promise<T> {
   let result: T;
@@ -1791,13 +1792,17 @@ Note that in this case, the contract deployment will not behave the same if depl
               }
             }
 
-            ethersSigner = new TrezorSigner(
-              provider,
-              derivationPath,
-              undefined, // TODO: support fetch by index
-              from,
-              'hardhat-deploy-trezor'
-            );
+            if (!hardwareSigner) {
+              hardwareSigner = new TrezorSigner(
+                provider,
+                derivationPath,
+                undefined, // TODO: support fetch by index
+                from,
+                'hardhat-deploy-trezor'
+              );
+            }
+            ethersSigner = hardwareSigner;
+
             hardwareWallet = 'trezor';
           } else if (registeredProtocol.startsWith('privatekey')) {
             ethersSigner = new Wallet(registeredProtocol.substr(13), provider);
